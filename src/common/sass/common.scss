@@ -1,0 +1,10 @@
+@mixin flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+@mixin fixed-img-ratio($paddingTop) {
+  position: relative;
+  width: 100%;
+  padding-top: $paddingTop;
+}
