@@ -4,13 +4,28 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import store from './store/index'
+import Navigation from 'vue-navigation'
+
+Vue.use(Navigation, {
+  router
+})
 
 /**
- * 重置样式 
- * 重置 vant-ui 的 css 
+ * 过滤器
+ */
+import './utils/Filter'
+
+/**
+ * 重置样式
+ * 重置 vant-ui 的 css
  * 共有样式
  */
 import './common/css/index.css'
+
+/**
+ * 字体图标
+ */
+import './common/icon/iconfont.css'
 
 /**
  * 设置 html 的font-size 值
@@ -33,7 +48,10 @@ import {
   Popup,
   Image,
   Lazyload,
-  Loading
+  Loading,
+  Skeleton,
+  DropdownMenu,
+  DropdownItem
 } from 'vant';
 Vue
   .use(Button)
@@ -47,7 +65,10 @@ Vue
   .use(Popup)
   .use(Image)
   .use(Lazyload)
-  .use(Loading);
+  .use(Loading)
+  .use(Skeleton)
+  .use(DropdownMenu)
+  .use(DropdownItem);
 
 
 /**
@@ -73,12 +94,13 @@ import './components/util'
 import './bridge/register'
 // 获取 token
 import Bridge from './bridge/call'
-Bridge.getToken()
+Bridge.getUserInfo()
 
-// import VConsole from 'vconsole'
-// new VConsole()
-
-// console.log(process.env)
+/**
+ * log
+ */
+import VConsole from 'vconsole'
+require('./constants/index').isShowLog && new VConsole()
 
 Vue.config.productionTip = false
 

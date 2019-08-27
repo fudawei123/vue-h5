@@ -3,6 +3,7 @@ import MyImgComponent from './myImg/MyImg'
 import MyListComponent from './myList/MyList'
 import MyShareComponent from './myShare/MyShare'
 import MyReadLikeComponent from './myReadLike/MyReadLike'
+import MyLikeCollectionComponent from './myLikeCollection/MyLikeCollection'
 
 [{
     name: 'MyImg',
@@ -19,6 +20,10 @@ import MyReadLikeComponent from './myReadLike/MyReadLike'
   {
     name: 'MyReadLike',
     component: MyReadLikeComponent
+  },
+  {
+    name: 'MyLikeCollection',
+    component: MyLikeCollectionComponent
   }
 ].forEach(({
   name,

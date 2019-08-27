@@ -34,6 +34,7 @@ export const setAttr = ({
         reset(state) {
           state.list = []
           state.params = {
+            ...state.params,
             pageNo: 1,
             length: state.params.length
           }
@@ -55,7 +56,6 @@ export const setAttr = ({
         }
       },
       actions: {
-        ...actions,
         getList({
           state,
           commit
@@ -69,7 +69,8 @@ export const setAttr = ({
               commit('setList', res.data)
               return state.list.length >= res.recordsTotal
             })
-        }
+        },
+        ...actions,
       }
     }
   }

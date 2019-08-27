@@ -18,7 +18,7 @@ setupWebViewJavascriptBridge(bridge => {
   bridge.registerHanlder('testJavaScriptFunction', (data, responseCallback) => {
     // data 是 android/OC 传递过来的数据.
     // responseCallback 是 JS 调用完毕之后传递给 android/OC 的数据
-    alert("JS 被 OC 调用了.");
+    console.log("JS 被 OC 调用了.");
     responseCallback({
       data: "js 的数据",
       from: "JS"

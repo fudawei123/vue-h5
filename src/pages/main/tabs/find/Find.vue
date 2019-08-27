@@ -1,7 +1,8 @@
 <template>
   <div class="find">
     <van-field v-model="token" placeholder="请输入用户名"/>
-    <van-button type="default" @click="gotoNews">去资讯列表</van-button>
+    <van-button type="default" @click="gotoNews('news')">去资讯列表</van-button>
+    <van-button type="default" @click="gotoNews('activityList')">去活动列表</van-button>
     <van-button type="default" @click="showMyShare">显示分享</van-button>
   </div>
 </template>
@@ -20,8 +21,8 @@ export default {
     ...mapState("user", ["token"])
   },
   methods: {
-    gotoNews() {
-      this.$router.push("/news");
+    gotoNews(path) {
+      this.$router.push(`/${path}`);
     },
     showMyShare() {
       // 直接调用

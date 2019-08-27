@@ -9,12 +9,12 @@ export default (_this) => {
   // 除了在调用 createAPI 的时候传入了 events，这里对应的就是
   // on{event name} 会被当做事件回调处理
   const instance = _this.$createMyShare({
-    title: _this.newsDetails.manageTitle || "一汽奥迪",
-    imageURL: _this.newsDetails.pictureUrl || _this.newsDetails.imgUrl,
-    description: _this.newsDetails.title || _this.newsDetails.manageTitle,
-    collectionStatus: !!_this.newsDetails.collectionStatus,
+    // title: _this.newsDetails.manageTitle || "一汽奥迪",
+    // imageURL: _this.newsDetails.pictureUrl || _this.newsDetails.imgUrl,
+    // description: _this.newsDetails.title || _this.newsDetails.manageTitle,
+    // collectionStatus: !!_this.newsDetails.collectionStatus,
     isShowCollection: false,
-    content: `${window.shareURL}newsDetailsShare?manageId=${_this.$route.query.manageId}`
+    // content: `${window.shareURL}newsDetailsShare?manageId=${_this.$route.query.manageId}`
   });
 
   instance.$on("cancel", () => {

@@ -6,7 +6,7 @@
     </div>
     <div class="num" @click="like">
       <van-icon name="good-job-o" v-show="!likeStatus"/>
-      <van-icon name="good-job" v-show="likeStatus" color="red"/>
+      <van-icon name="good-job" :class="{'selected': likeStatus}" v-show="likeStatus"/>
       <span>{{likeNum}}</span>
     </div>
   </div>
@@ -43,14 +43,26 @@ export default {
 <style lang="scss" scoped>
 .read-like {
   display: flex;
-  justify-content: space-between;
-  font-size: 14px;
-  line-height: 14px;
+  // justify-content: space-between;
+  // font-size: 14px;
+  // line-height: 14px;
   .num {
     display: flex;
     align-items: center;
+    &:nth-child(1) {
+      margin-right: 24px;
+    }
+    > i {
+      font-size: 14px;
+      color: #999;
+      line-height: 14px;
+      &.selected {
+        color: $color-red;
+      }
+    }
     > span {
-      margin-left: 5px;
+      margin-left: 8px;
+      color: #666;
     }
   }
 }

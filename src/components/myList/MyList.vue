@@ -90,7 +90,7 @@ export default {
     document.querySelector(".scroll-wrapper").addEventListener(
       "scroll",
       function() {
-        console.log(this.scrollTop);
+        // console.log(this.scrollTop);
         _this.$route.meta.savedScrollTop = this.scrollTop;
       },
       false

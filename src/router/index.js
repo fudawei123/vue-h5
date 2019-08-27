@@ -13,6 +13,9 @@ const Find = LazyLoad('/main/tabs/find/Find') // 发现页
 const Mine = LazyLoad('/main/tabs/mine/Mine') // 我的页
 const News = LazyLoad('/main/tabs/find/news/list/List') // 资讯列表
 const NewsDetails = LazyLoad('/main/tabs/find/news/detail/Detail') // 资讯详情
+const NewsDetailsShare = LazyLoad('/main/tabs/find/share/NewsDetailsShare') // 分享资讯详情
+const ActivityList = LazyLoad('/main/tabs/find/activity/list/List') // 活动列表
+const ActivityDetail = LazyLoad('/main/tabs/find/activity/detail/Detail') // 活动详情
 
 const router = new Router({
   mode: 'hash',
@@ -49,7 +52,7 @@ const router = new Router({
       component: Main,
       children: [{
           path: '/main',
-          redirect: "/tabs",
+          redirect: "/find",
         },
         {
           path: '/tabs',
@@ -80,6 +83,7 @@ const router = new Router({
           name: 'News',
           component: News,
           meta: {
+            flag: false,
             keepAlive: true,
             title: "资讯列表",
           }
@@ -90,9 +94,35 @@ const router = new Router({
           component: NewsDetails,
           meta: {
             title: "资讯详情",
-            rightIcon: "share",
+            rightIcon: "more",
           }
-        }
+        },
+        {
+          path: '/newsDetailsShare',
+          name: 'NewsDetailsShare',
+          component: NewsDetailsShare,
+          meta: {
+            flag: false
+          }
+        },
+        {
+          path: '/activityList',
+          name: 'ActivityList',
+          component: ActivityList,
+          meta: {
+            keepAlive: true,
+            title: "活动列表",
+          }
+        },
+        {
+          path: '/activityDetail',
+          name: 'ActivityDetail',
+          component: ActivityDetail,
+          meta: {
+            title: "活动详情",
+            rightIcon: "zhuanfa",
+          }
+        },
       ]
     }
   ]

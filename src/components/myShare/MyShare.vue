@@ -1,6 +1,10 @@
 <template>
   <div class="my-share" @click="cancel">
     <div class="content" @click.stop>
+      <div class="share">
+        分享到
+        <van-icon @click="cancel" name="cross"/>
+      </div>
       <ul class="list">
         <li class="item-wrapper" v-for="(item, index) in list" :key="index">
           <div class="item" @click="share(item.platform)">
@@ -20,8 +24,8 @@
           </div>
         </li>
       </ul>
-      <div class="placeholder"></div>
-      <div class="cancel" @click="cancel">取消</div>
+      <!-- <div class="placeholder"></div>
+      <div class="cancel" @click="cancel">取消</div>-->
     </div>
   </div>
 </template>
@@ -57,7 +61,8 @@ export default {
     },
     collectionStatus: {
       type: Boolean
-    }
+    },
+    content: {}
   },
   data() {
     return {
@@ -96,7 +101,7 @@ export default {
     share(platform) {
       Bridge.share({
         platform,
-        content: window.location.href,
+        content: this.content,
         title: this.title,
         description: this.description,
         imageURL: this.imageURL
@@ -120,9 +125,11 @@ export default {
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  padding: 10px 20px;
+  // padding: 10px 20px;
   background-color: rgba(0, 0, 0, 0.7);
   .content {
+    padding: 15px 15px 0 15px;
+    background-color: #fff;
     .placeholder {
       height: 10px;
     }
@@ -138,13 +145,12 @@ export default {
   .list {
     display: flex;
     flex-wrap: wrap;
-    padding: 20px 20px 0 20px;
     background-color: #fff;
-    border-radius: 4px;
+    // border-radius: 4px;
     .item-wrapper {
       display: flex;
       justify-content: center;
-      width: 20%;
+      width: 33.3333333333%;
       padding-bottom: 20px;
     }
   }
@@ -153,13 +159,28 @@ export default {
     flex-direction: column;
     align-items: center;
     .img-wrapper {
-      width: 40px;
-      height: 40px;
-      margin-bottom: 3px;
+      width: 48px;
+      height: 48px;
+      margin-bottom: 5px;
     }
     > p {
-      font-size: 15px;
-      line-height: 15px;
+      font-size: 13px;
+      line-height: 13px;
+    }
+  }
+  .share {
+    position: relative;
+    margin-bottom: 41px;
+    font-size: 15px;
+    color: #333;
+    text-align: center;
+    line-height: 15px;
+    > i {
+      position: absolute;
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 20px;
     }
   }
 }

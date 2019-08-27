@@ -1,0 +1,26 @@
+@font-face {
+  font-family: "my-icon";
+  src: url('./iconfont.ttf') format('truetype');
+}
+
+.my-icon {
+  font-family: 'my-icon';
+  position: relative;
+  font: 0.37333rem/1 "my-icon";
+  font-size: inherit;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  vertical-align: middle;
+}
+
+.my-icon-more:before {
+  content: "\e677";
+}
+
+.my-icon-aodi:before {
+  content: "\e614";
+}
+
+.my-icon-zhuanfa:before {
+  content: "\e642";
+}
